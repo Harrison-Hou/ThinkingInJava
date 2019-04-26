@@ -5,45 +5,33 @@
  */
 package javaapplication1;
 
-class Actor {
-
-    //Constructor is the static method, will be called without object
-    public Actor() {
-        System.out.println("Actor() Constructor");
-    }
+abstract class Animal {
     
-    public void act() {
-        System.out.println("Actor() act()");
-
-    }
+    private int numberOflegs = 4; 
+    
+    
+    abstract void move(int numberofLegs);
+    
+    abstract void stay();
 }
 
-class HappyActor extends Actor {
+class Human extends Animal {
     
     @Override
-    public void act() {
-        System.out.println("Happy Actor act()");
-    }
+    public void move(int numberofLegs) {
+        
 }
-
-class SadActor extends Actor {
-
     @Override
-    public void act() {
-        System.out.println("Sad Actor act()");
+    public void stay() {
+        
     }
-}
-
-class Stage {
-
-    private Actor actor = new HappyActor();
-
-    public void change() {
-        actor = new SadActor();
+    
+    public void makeSong() {
+        
     }
-
-    public void performPlay() {
-        actor.act();
+    
+    public void makefood() {
+        
     }
 }
 
@@ -52,21 +40,22 @@ class Stage {
  * @author harrison
  */
 public class MyClass {
+    
+    
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        
+         int numberofLegs = 4; 
         //TODO main code here
-        
-        
-        Stage stage = new Stage();
-        System.out.println("1111111");
-        stage.performPlay();
-        System.out.println("2222222");
-        //the constructor Act was called again. 
-        stage.change();
-        stage.performPlay();
+//        Animal[] humans = { new Animal(), new Human()};
+//        
+//        humans[0].move();
+        Human[] humans = { new Human(), new Human()};
+        humans[0].move(numberofLegs);
+       
     }
 
 }
