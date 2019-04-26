@@ -36,7 +36,7 @@ class SadActor extends Actor {
 
 class Stage {
 
-    private Actor actor = new Actor();
+    private Actor actor = new HappyActor();
 
     public void change() {
         actor = new SadActor();
