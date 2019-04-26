@@ -5,100 +5,68 @@
  */
 package javaapplication1;
 
-class Shape {
-    public Shape() {
-        System.out.println("Shape()");
+class Actor {
+
+    //Constructor is the static method, will be called without object
+    public Actor() {
+        System.out.println("Actor() Constructor");
     }
     
-    public void draw() {
-        System.out.println("Shape draw()");
-    }
-    
-    public void erase() {
-        System.out.println("Shape erase()");
-    }
-    
-    public static String getStaticString() {
-        return "Shape static getString";
-    }
-    
-    public String getDynamicString() {
-        return "Shape Dynamic String";
+    public void act() {
+        System.out.println("Actor() act()");
+
     }
 }
 
-class Circle extends Shape {
-    
-    public Circle() {
-        
-        System.out.println("Circle()");
-    }
+class HappyActor extends Actor {
     
     @Override
-    public void draw() {
-        System.out.println("Circle draw()");
+    public void act() {
+        System.out.println("Happy Actor act()");
     }
-    
-    
-    @Override
-    public void erase() {
-        System.out.println("Circle draw()");
-    }
-    
-    public static String getStaticString() {
-        return "Circle static getString";
-    }
-
-    @Override
-    public String getDynamicString() {
-        return "Circle Dynamic String";
-    }
-    
 }
 
-class Rectangle extends Shape {
-    
-    public Rectangle() {
-        super();
-        System.out.println("Rectangle()");
-    }
-    
+class SadActor extends Actor {
+
     @Override
-    public void draw() {
-        System.out.println("Rectangle draw()");
+    public void act() {
+        System.out.println("Sad Actor act()");
     }
-    
-    
-    @Override
-    public void erase() {
-        System.out.println("Rectangle draw()");
-    }
-    
 }
 
+class Stage {
+
+    private Actor actor = new Actor();
+
+    public void change() {
+        actor = new SadActor();
+    }
+
+    public void performPlay() {
+        actor.act();
+    }
+}
 
 /**
  *
  * @author harrison
  */
 public class MyClass {
-    
-    
-    public static void drawImage(Shape s) {
-           s.draw();
-    }
-    
+
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         //TODO main code here
-    Shape circle = new Circle();
-    System.out.println(circle.getDynamicString());
-    System.out.println(Circle.getStaticString());
         
+        
+        Stage stage = new Stage();
+        System.out.println("1111111");
+        stage.performPlay();
+        System.out.println("2222222");
+        //the constructor Act was called again. 
+        stage.change();
+        stage.performPlay();
     }
-    
 
 }
-    
