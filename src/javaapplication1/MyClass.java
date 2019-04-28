@@ -5,34 +5,68 @@
  */
 package javaapplication1;
 
-abstract class Animal {
-    
-    private int numberOflegs = 4; 
-    
-    
-    abstract void move(int numberofLegs);
-    
-    abstract void stay();
+interface Service {
+
+    void method1();
+
+    void method2();
 }
 
-class Human extends Animal {
-    
-    @Override
-    public void move(int numberofLegs) {
-        
+interface ServiceFactory {
+
+    Service getService();
 }
+
+class Implementation1 implements Service {
+
+    public Implementation1() {
+    }
+
     @Override
-    public void stay() {
-        
+    public void method1() {
+        System.out.println("Implementation1 method1"); //To change body of generated methods, choose Tools | Templates.
     }
-    
-    public void makeSong() {
-        
+
+    @Override
+    public void method2() {
+        System.out.println("Implementation1 method2"); //To change body of generated methods, choose Tools | Templates.
     }
-    
-    public void makefood() {
-        
+
+}
+
+class Implementation1Factory implements ServiceFactory {
+
+    @Override
+    public Service getService() {
+        return new Implementation1(); //To change body of generated methods, choose Tools | Templates.
     }
+
+}
+
+class Implementation2 implements Service {
+
+    public Implementation2() {
+    }
+
+    @Override
+    public void method1() {
+        System.out.println("Implementation1 method1"); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void method2() {
+        System.out.println("Implementation1 method2"); //To change body of generated methods, choose Tools | Templates.
+    }
+
+}
+
+class Implementation2Factory implements ServiceFactory {
+
+    @Override
+    public Service getService() {
+        return new Implementation2(); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }
 
 /**
@@ -41,21 +75,19 @@ class Human extends Animal {
  */
 public class MyClass {
     
-    
+    public static void serviceConsumer(ServiceFactory fact) {
+        Service s = fact.getService();
+        s.method1();
+        s.method2();
+    }
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        serviceConsumer(new Implementation1Factory());
+        serviceConsumer(new Implementation2Factory());
         
-         int numberofLegs = 4; 
-        //TODO main code here
-//        Animal[] humans = { new Animal(), new Human()};
-//        
-//        humans[0].move();
-        Human[] humans = { new Human(), new Human()};
-        humans[0].move(numberofLegs);
-       
     }
 
 }
