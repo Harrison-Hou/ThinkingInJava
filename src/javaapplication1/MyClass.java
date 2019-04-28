@@ -50,12 +50,12 @@ class Implementation2 implements Service {
 
     @Override
     public void method1() {
-        System.out.println("Implementation1 method1"); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("Implementation2 method1"); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public void method2() {
-        System.out.println("Implementation1 method2"); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("Implementation2 method2"); //To change body of generated methods, choose Tools | Templates.
     }
 
 }
